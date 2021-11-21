@@ -5,18 +5,68 @@
         protocol = https
 [alias]
         co = checkout
+        ci = commit
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        g = status -s
+        s = status
+        main = !git switch main && git pull origin main
+        d = diff
+        po = push origin
+        can = commit --amend --no-edit
+        myrw = "!reword() { git commit --amend -m \"$1\"; }; reword"
+        fix = commit --fixup
+        r = rebase
+        graph = log --graph --decorate --oneline --all
+        l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+        ; pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/main"
+        dw = diff --color-words
+        search = "!f () { git grep -E -n "$1" $(git log --pretty=format:%h -E -10 --pickaxe-regex -G"$1" "$2") -- "./$2"; }; f"
+        bblame = "!f () { git log -E -5 --pickaxe-regex -i -p -S"$1" "$2"; }; f"
+        resolve = !sh -c 'git conflicts && $EDITOR $(git conflicts) +\"/<<<<\"'
+        conflicts = !sh -c 'git status -sb | grep ^UU | sed "s/UU\\ //"'
+        lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+        bb = backup-branch
+        mdr = !"git diff "$@" |  mdr"
+        sweep = !git branch --merged main | grep -v 'main$' | xargs git branch -d && git remote prune origin
+        realdiff = diff --stat main -- ":(exclude)*.lock" ":(exclude)*.snap"
 [color]
         diff = auto
         status = auto
         branch = auto
         ui = true
+        pager = true
+        interactive = true
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow
+        frag = magenta
+        old = red
+        new = green
+
+[color "status"]
+        added = yellow
+        changed = green
+        untrakced = cyan
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+        editor = nvim
+        whitespace = -blank-at-eof,trailing-space,fix,cr-at-eol
+        autoclrf = input
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+        ignorecase = true
+        branch-name = rev-parse --abbrev-ref HEAD
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -25,11 +75,31 @@
         prompt = false
 [help]
         autocorrect = 1
+        format = html
+[pull]
+        rebase = true
 [push]
         # See `git help config` (search for push.default)
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[rebase]
+        autosquash = true
+        interactive = true
+[status]
+        showUntrackedFiles = all
+        short = true
+[merge]
+        ff = no
+        guitool = FileMerge.app
+        tool = opendiff
+[commit]
+        gpgsign = true
+        verbose = true
 [credential]
-	helper = osxkeychain
+        helper = osxkeychain
+[remote "origin"]
+        push = HEAD
+[init]
+        defaultBranch = main
