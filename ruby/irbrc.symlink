@@ -40,7 +40,7 @@ def cop
 end
 
 def me
-  User.find_by(email: ENV['USER_EMAIL'].strip)
+  User.find_by(email: ENV['EMAIL'].strip)
 end
 
 def r
