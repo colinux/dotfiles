@@ -1,0 +1,3 @@
+export OVERMIND_CAN_DIE=vue-devtools
+export RAILS_SYSTEM_TESTING_SCREENSHOT=inline
+export GUARD_NOTIFY=false
