@@ -20,9 +20,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg_bold[green]%}$(git_branch)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg_bold[red]%}$(git_branch)%{$reset_color%}"
     fi
   fi
 }
@@ -46,6 +46,23 @@ need_push () {
       echo " "
     else
       echo " with %{$fg_bold[magenta]%}$number unpushed%{$reset_color%}"
+    fi
+  fi
+}
+
+git_prompt () {
+  if [ $($git symbolic-ref HEAD 2>/dev/null) ]
+  then
+    echo $(git_dirty)$(need_push)
+  else
+    # not on a branch
+    ref=$(git rev-parse --short=6 HEAD 2> /dev/null)
+
+    if [ $ref ] # sha1
+      echo "at %{$fg_bold[magenta]%}$ref%{$reset_color%}"
+    then
+      # not in repository
+      echo ""
     fi
   fi
 }
@@ -74,7 +91,7 @@ ruby_version() {
   fi
 }
 
-export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)$(ruby_version)\n› '
+export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_prompt)$(ruby_version)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
