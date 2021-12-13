@@ -29,7 +29,6 @@ Plugin 'pangloss/vim-javascript'
 " Plugin 'peitalin/vim-jsx-typescript'
 " Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'mhartington/nvim-typescript'
 Plugin 'posva/vim-vue'
 Plugin 'TaDaa/vimade'
 
