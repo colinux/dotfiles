@@ -17,3 +17,8 @@ if test ! $(which react-devtools)
 then
     npm install -g react-devtools @vue/devtools
 fi
+
+if test ! $(which sentry-cli)
+then
+    npm install -g @sentry/cli
+fi

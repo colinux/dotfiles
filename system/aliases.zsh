@@ -20,9 +20,12 @@ alias o='open .'
 alias cat="bat"
 alias pat="bat -p"
 
-# always prefer nvim
+# always prefer nvim, goneovim for code
 alias vi="nvim"
 alias vim="nvim"
+function c() {
+  exec /Applications/goneovim.app/Contents/MacOS/goneovim --maximized "${1:-.}" &
+}
 
 alias g="git"
 
@@ -35,7 +38,7 @@ alias ip6="curl v6.ipv6-test.com/api/myip.php"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias iplan="ips |grep 'broadcast' |cut -f2 -d' '"
 alias port_check="nc -vz localhost $@" # ie. nc -v localhost 3000
-alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+alias speedtest="curl -o /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip"
 
 # http
 alias curl_headers="curl -s -D - -o /dev/null $@"

@@ -39,10 +39,6 @@ def cop
   "copied \`#{last_value}' to your clipboard"
 end
 
-def me
-  User.find_by(email: ENV['EMAIL'].strip)
-end
-
 def r
   reload!
 end

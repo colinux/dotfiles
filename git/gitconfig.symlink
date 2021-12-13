@@ -5,13 +5,14 @@
         protocol = https
 [alias]
         co = checkout
-        ci = commit
+        c = commit
+        a = add -p
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
-        g = status -s
         s = status
+        sw = switch
         main = !git switch main && git pull origin main
         d = diff
         po = push origin
@@ -24,7 +25,7 @@
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
         ; pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/main"
         dw = diff --color-words
-        search = "!f () { git grep -E -n "$1" $(git log --pretty=format:%h -E -10 --pickaxe-regex -G"$1" "$2") -- "./$2"; }; f"
+        search = "!f () { git grep -E -n "$1" $(git log --pretty=format:%h -E -10 --pickaxe-regex -S"$1" "$2") -- "./$2"; }; f"
         bblame = "!f () { git log -E -5 --pickaxe-regex -i -p -S"$1" "$2"; }; f"
         resolve = !sh -c 'git conflicts && $EDITOR $(git conflicts) +\"/<<<<\"'
         conflicts = !sh -c 'git status -sb | grep ^UU | sed "s/UU\\ //"'
@@ -48,7 +49,8 @@
 
 [color "diff"]
         meta = yellow
-        frag = magenta
+        frag = "#88aaff" bold
+        func = "#aaccff"
         old = red
         new = green
 
@@ -74,7 +76,7 @@
 [difftool]
         prompt = false
 [help]
-        autocorrect = 1
+        autocorrect = 25 # 2.5 sec before executing autocorrected command
         format = html
 [pull]
         rebase = true
@@ -90,6 +92,8 @@
 [status]
         showUntrackedFiles = all
         short = true
+[diff]
+        context = 4
 [merge]
         ff = no
         guitool = FileMerge.app

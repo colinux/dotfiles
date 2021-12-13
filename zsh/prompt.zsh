@@ -68,7 +68,7 @@ battery_status() {
 
 ruby_version() {
   if [ -f ".ruby-version" ]; then
-    echo "%{$fg_bold[blue]%}$(rbenv version-name)%{$reset_color%}"
+    echo " %{$fg_bold[blue]%}$(rbenv version-name)%{$reset_color%}"
   else
     echo ""
   fi
