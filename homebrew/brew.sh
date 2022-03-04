@@ -13,6 +13,7 @@ brew install direnv
 brew install jq
 brew install httpie
 brew install htop
+brew install imagemagick
 brew install pdftotext
 brew install ffmpeg
 brew install yt-dlp/taps/yt-dlp
@@ -32,6 +33,7 @@ fi
 # OSX tools & casks
 brew install insomnia
 brew install firefox
+brew install imageoptim
 brew install rectangle
 brew install slack
 brew install vlc
@@ -48,6 +50,12 @@ brew install overmind
 brew install rbenv
 brew install ruby-build
 brew install shared-mime-info # for mimemagic gem
+
+# React-Native & debuggers
+brew install --cask flipper react-native-debugger
+brew install watchman
+brew tap facebook/fb
+brew install idb-companion
 
 brew install node@14
 brew install node@16

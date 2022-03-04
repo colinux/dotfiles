@@ -19,7 +19,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'rakr/vim-one'
 Plugin 'vim-airline/vim-airline'
-Plugin 'bling/vim-bufferline'
+" Plugin 'bling/vim-bufferline'
+Plugin 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plugin 'akinsho/bufferline.nvim'
 Plugin 'slim-template/vim-slim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/html5.vim'
@@ -60,8 +62,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'preservim/nerdtree'
 
 " Linters
-" Plugin 'eslint/eslint'
-" Plugin 'bbatsov/rubocop'
+Plugin 'eslint/eslint'
+Plugin 'bbatsov/rubocop'
 
 " All of your Plugins must be added before the following line
 call vundle#end()						" required
@@ -149,7 +151,8 @@ endif
 
 
 if !has("nvim")
-  set guifont=Monaco:h12 " Neovim in terminal will ignore this option. Set terminal font instead"
+  " set guifont=Monaco:h12
+  set guifont=Fantasque\ Sans\ Mono\ Regular\ Nerd\ Font\ 12 " Neovim in terminal will ignore this option. Set terminal font instead"
   set antialias
 endif
 
@@ -319,7 +322,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -344,7 +347,7 @@ nmap <leader>rs <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>rc  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>f  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -535,11 +538,10 @@ function SetNewDigraphs()
 endfunction
 autocmd BufEnter * call SetNewDigraphs()
 
-
 " Open url
 nmap gu :exec "!open <cWORD>"<cr>
 
 let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " latest node 17 is not installed
-let g:coc_node_path = '/opt/homebrew/opt/node@16/bin/node'
+let g:coc_node_path = '/opt/homebrew/opt/node@14/bin/node'

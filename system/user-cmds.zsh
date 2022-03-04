@@ -7,3 +7,5 @@ function mount_fbx() {
   fi
   mount_afp "afp://Freebox%20Server._afpovertcp._tcp.local/FreebExt/" $mount_point
 }
+
+alias qrencode-shell="qrencode -t UTF8 -o -"
