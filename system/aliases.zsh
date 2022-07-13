@@ -24,7 +24,7 @@ alias pat="bat -p"
 alias vi="nvim"
 alias vim="nvim"
 function c() {
-  exec /Applications/goneovim.app/Contents/MacOS/goneovim --maximized "${1:-.}" &
+  exec /Applications/goneovim${GONEOVIM_VARIANT}.app/Contents/MacOS/goneovim --maximized "${1:-.}" &
 }
 
 alias g="git"
