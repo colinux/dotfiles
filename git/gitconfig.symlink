@@ -18,7 +18,7 @@
         po = push origin
         can = commit --amend --no-edit
         myrw = "!reword() { git commit --amend -m \"$1\"; }; reword"
-        fix = "!git commit --fixup \"$1\" --no-verify"
+        fix = commit --no-verify --fixup
         r = rebase
         graph = log --graph --decorate --oneline --all
         l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -69,12 +69,17 @@
         logallrefupdates = true
         ignorecase = true
         branch-name = rev-parse --abbrev-ref HEAD
+        pager = delta
 [apply]
         whitespace = nowarn
 [mergetool]
         keepBackup = false
 [difftool]
         prompt = false
+[interactive]
+        diffFilter = delta --color-only
+[delta]
+        navigate = true # use n an dN to move between diff sections
 [help]
         autocorrect = 25 # 2.5 sec before executing autocorrected command
         format = html
@@ -94,10 +99,12 @@
         short = true
 [diff]
         context = 4
+        colorMoved = default
 [merge]
         ff = no
         guitool = FileMerge.app
         tool = opendiff
+        conflictstyle = diff3
 [commit]
         gpgsign = true
         verbose = true
