@@ -464,6 +464,7 @@ let NERDTreeRespectWildIgnore = 1
 let NERDTreeShowHidden = 1
 let NERDTreeSortHiddenFirst = 1
 let NERDTreeIgnore=['\.vim$', '\~$', '^log$', '^node_modules$', '^.bundle$', '^.git$', '.DS_Store$', '^.imdone']
+let NERDTreeWinSize=55
 
 
 " Vue support
