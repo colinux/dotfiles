@@ -547,3 +547,6 @@ let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " latest node 17 is not installed
 let g:coc_node_path = '/opt/homebrew/opt/node@14/bin/node'
+
+" Enable syntax highlighting into markdown code blocks
+let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'erb=ruby', 'vim', 'javascript', 'js=javascript', 'json=javascript', 'tsx=javascript', 'jsx=javascript', 'css', 'sass', 'yaml']
