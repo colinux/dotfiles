@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# set -x
+set -e
+
+heroku=/opt/homebrew/bin/heroku
+
+
+reviewApps=`$heroku pipelines:info $IMPARATO_PIPELINE_ID --json | jq -r '.apps[] | select(.coupling.stage == "review") | .name'`
+
+
+if [ "$1" = "start" ]; then
+  echo "Start api-imparato-io-staging…"
+  $heroku ps:scale web=1 -a api-imparato-io-staging
+
+  echo "Start webapp-imparato-io-staging…"
+  $heroku ps:scale web=1 -a webapp-imparato-io-staging
+
+  echo "Should I start imparato-api-tester ? y/n"
+  read starttester
+  if [ "$starttester" = "y" ]; then
+    $heroku ps:scale web=1 -a imparato-api-tester
+  else
+    echo "Not starting imparato-api-tester"
+  fi
+
+  for reviewApp in $reviewApps; do
+    echo "Should I start $reviewApp ? y/n"
+    read starttester
+
+    if [ "$starttester" = "y" ]; then
+      $heroku ps:scale web=1 -a $reviewApp
+    fi
+  done
+elif [ "$1" = "stop" ]; then
+  $heroku ps:scale web=0 -a api-imparato-io-staging
+  $heroku ps:scale web=0 -a webapp-imparato-io-staging
+  $heroku ps:scale web=0 -a imparato-api-tester
+
+  for reviewApp in $reviewApps; do
+    echo "Stopping $reviewApp"
+    $heroku ps:scale web=0 -a $reviewApp
+  done
+
+  echo "All staging and review apps were stopped."
+else
+  echo "Invalid command '$1'." >&2
+  echo "Usage: $0 start | stop"
+fi

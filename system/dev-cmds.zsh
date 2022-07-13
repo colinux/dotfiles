@@ -70,11 +70,12 @@ function gcloud_token() {
 
 # Extract dev@imparato.io account token
 function dev_imp_token() {
-  query="select authentication_token from users where email = 'dev@imparato.io';"
+  query="select authentication_token from users where email = '$IMPARATO_EMAIL' limit 1;"
   # no argument = dev
   if [ $# -eq 0 ]; then
     psql -d api_imparato_io_development -c "${query}"
   else
-    heroku psql -c "${query}" "$@"
+    heroku psql $IMPARATO_PG_RO_DB -c "${query}" "$@"
   fi
 }
+
