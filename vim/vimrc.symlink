@@ -53,6 +53,7 @@ Plugin 'chrisbra/unicode.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
 Plugin 'alvan/vim-closetag'
+Plugin 'github/copilot.vim'
 
 " Navigation
 Plugin 'junegunn/fzf'
