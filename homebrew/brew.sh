@@ -9,13 +9,17 @@ brew install tree
 
 # Utils
 brew install bat
+brew install git-delta
+brew install fd
 brew install direnv
 brew install jq
 brew install httpie
 brew install htop
 brew install imagemagick
+brew install pgcli
 brew install pdftotext
 brew install ffmpeg
+brew install sd
 brew install yt-dlp/taps/yt-dlp
 
 
