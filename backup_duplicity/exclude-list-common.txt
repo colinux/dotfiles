@@ -1,0 +1,24 @@
+# Not Used anymore, each entry is
+# included in each dedidacated exclude list
+# to allow complexe include/exclude combinations.
+
+**/.Trash
+**/.DS_Store
+**/.localized
+**/.node-gyp
+**/.cache
+**/Caches
+**/Cache
+
+**/node_modules
+**/site-packages
+**/.asset-cache
+**/__pycache__
+**/*.pyc
+**/.*.icloud
+**/.rbenv
+# + **/Gemfile.lock
+**/*.lock
+**/*.sock
+**/*.pid
+**/Library/Safari/Touch Icons Cache

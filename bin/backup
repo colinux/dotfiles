@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -x
+set -e
+
+SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
+
+duplicity_version=$(brew info --json duplicity | jq -r '.[0].linked_keg') && \
+  cd /usr/local/Cellar/duplicity/$duplicity_version/libexec/bin && \
+  source ./activate
+
+sh "${SCRIPT_DIR}/../backup_duplicity/do_backup.sh" $@

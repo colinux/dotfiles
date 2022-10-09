@@ -1,0 +1,247 @@
+**/.Trash
+**/.DS_Store
+**/.localized
+**/.node-gyp
+**/.cache
+**/node_modules
+**/site-packages
+**/.asset-cache
+**/__pycache__
+**/*.pyc
+**/.*.icloud
+**/*.sock
+**/*.pid
+
+/Users/colin/.vim/bundle/*
+
++ /Users/colin/Applications/Kerbal Space Program/settings.cfg
++ /Users/colin/Applications/Kerbal Space Program/saves
++ /Users/colin/Applications/Kerbal Space Program/Ships
+/Users/colin/Applications/*
+/Users/colin/Downloads/
+
+/Users/colin/Library/Accounts
+/Users/colin/Library/Android/sdk/*
+/Users/colin/Library/Application Scripts
+/Users/colin/Library/Application Support/1Password 4/Backups/*
+/Users/colin/Library/Application Support/Adobe/*
+/Users/colin/Library/Application Support/Aegisub
+/Users/colin/Library/Application Support/AddressBook
+/Users/colin/Library/Application Support/Alfred 3/Alfred.alfredpreferences/remote/*
+/Users/colin/Library/Application Support/Alfred 3/Workflow Data/com.vdesabou.spotify.mini.player/artwork/*
+/Users/colin/Library/Application Support/Atom
+/Users/colin/Library/Application Support/Backup/*
+/Users/colin/Library/Application Support/Bitdefender Virus Scanner/*
+/Users/colin/Library/Application Support/BraveSoftware/Brave-Browser/*
+/Users/colin/Library/Application Support/CallHistory*
+/Users/colin/Library/Application Support/Carbonite/Sync & Share/*
+/Users/colin/Library/Application Support/CEF/*
+/Users/colin/Library/Application Support/Code/logs/*
+/Users/colin/Library/Application Support/Code/CachedData/*
+/Users/colin/Library/Application Support/Chromium
+/Users/colin/Library/Application Support/com.apple.QuickLook/*
+/Users/colin/Library/Application Support/com.apple.spotlight/*
+/Users/colin/Library/Application Support/comMobileSync/*
+/Users/colin/Library/Application Support/MobileSync/*
+/Users/colin/Library/Application Support/CloudDocs/*
+/Users/colin/Library/Application Support/Console/*
+/Users/colin/Library/Application Support/CrashReporter
+/Users/colin/Library/Application Support/Expo XDE/*
+/Users/colin/Library/Application Support/Firefox/Crash Reports/*
+/Users/colin/Library/Application Support/Flux/*
+/Users/colin/Library/Application Support/Front/*
+/Users/colin/Library/Application Support/Garmin/Express/Maps/*
+/Users/colin/Library/Application Support/Garmin/Logs/*
+/Users/colin/Library/Application Support/Google/*
+/Users/colin/Library/Application Support/HandBrake/EncodeLogs
+/Users/colin/Library/Application Support/iDVD/*
+/Users/colin/Library/Application Support/Insomnia/responses/*
+/Users/colin/Library/Application Support/Insomnia/GPUCache/*
+/Users/colin/Library/Application Support/iLifeAssetManagement/*
+/Users/colin/Library/Application Support/iLifePageLAyout/*
+/Users/colin/Library/Application Support/Knowledge
+/Users/colin/Library/Application Support/Macromedia/*
+/Users/colin/Library/Application Support/Mozilla/*
+/Users/colin/Library/Application Support/Ofi Labs/PhantomJS/*
+/Users/colin/Library/Application Support/Oracle/*
+/Users/colin/Library/Application Support/PreferenceSync/*
+/Users/colin/Library/Application Support/Preview/*
+/Users/colin/Library/Application Support/Progressive Downloader Data
+/Users/colin/Library/Application Support/Quick Look
+/Users/colin/Library/Application Support/React Native Debugger
+/Users/colin/Library/Application Support/Reactotron
+/Users/colin/Library/Application Support/Signal
+/Users/colin/Library/Application Support/Syncthing/**.log
+/Users/colin/Library/Application Support/Slack
+/Users/colin/Library/Application Support/Spotify
+/Users/colin/Library/Application Support/Skype/*
+/Users/colin/Library/Application Support/Steam
+/Users/colin/Library/Application Support/SyncServices/Local/*
+/Users/colin/Library/Application Support/Ubiquity/*
+/Users/colin/Library/Application Support/zoom.us/*
+
+/Users/colin/Library/Application Support/com.apple.sbd
+/Users/colin/Library/Application Support/com.apple.sharedfilelist
+
+
+/Users/colin/Library/Assistant
+/Users/colin/Library/Assistants
+/Users/colin/Library/Audio
+/Users/colin/Library/Autosave Information
+/Users/colin/Library/Calendars
+/Users/colin/Library/CallServices
+/Users/colin/Library/ColorPickers
+/Users/colin/Library/Colors
+/Users/colin/Library/Compositions
+/Users/colin/Library/Containers
+/Users/colin/Library/Cookies
+/Users/colin/Library/CoreFollowUp
+/Users/colin/Library/CoreData
+/Users/colin/Library/Developer
+/Users/colin/Library/Dictionaries
+/Users/colin/Library/Family
+/Users/colin/Library/FileProvider
+/Users/colin/Library/FontCollections
+/Users/colin/Library/Fonts Disabled
+/Users/colin/Library/Fonts Discontinued
+/Users/colin/Library/Fonts
+/Users/colin/Library/Google
+/Users/colin/Library/Group Containers
+/Users/colin/Library/IdentityServices
+/Users/colin/Library/Input Methods
+/Users/colin/Library/Internet Plug-Ins
+/Users/colin/Library/iTunes/iPhone Software Updates
+/Users/colin/Library/iTunes/iPad Software Updates
+/Users/colin/Library/Jupyter
+/Users/colin/Library/Keyboard
+/Users/colin/Library/Keyboard Layouts
+/Users/colin/Library/KeyboardServices
+/Users/colin/Library/Keychains
+/Users/colin/Library/LanguageModeling
+/Users/colin/Library/LaunchAgents
+/Users/colin/Library/Logs
+/Users/colin/Library/Mail
+/Users/colin/Library/Maps
+/Users/colin/Library/Messages
+/Users/colin/Library/Metadata
+/Users/colin/Library/Mobile Documents
+/Users/colin/Library/Passes
+
+/Users/colin/Library/Preferences/ByHost
+/Users/colin/Library/Preferences/com.apple.Japanese.analysis
+
+/Users/colin/Library/Printers
+/Users/colin/Library/PubSub
+/Users/colin/Library/SafariSafeBrowsing
+/Users/colin/Library/Safari/Favicon Cache
+/Users/colin/Library/Safari/Touch Icons Cache
+/Users/colin/Library/Safari/CloudBookmarksMigrationCoordinator/Logs
+/Users/colin/Library/Safari/Databases/___IndexedDB/https_web.telegram.org_0
+/Users/colin/Library/Saved Application State
+/Users/colin/Library/Screen Savers
+/Users/colin/Library/Services
+/Users/colin/Library/Sharing
+/Users/colin/Library/Sounds
+/Users/colin/Library/Spelling
+/Users/colin/Library/Suggestions
+/Users/colin/Library/Trial
+/Users/colin/Library/VirtualBox
+/Users/colin/Library/WebKit
+
+/Users/colin/Movies/Bibliothèque iMovie.imovielibrary/**/Render Files/Thumbnail Media
+/Users/colin/Movies/Bibliothèque iMovie.imovielibrary/**/Peaks Data
+/Users/colin/Movies/Bibliothèque iMovie.imovielibrary/**/Original Media
+
+**/VirtualBox VMs*/*
+
+/Users/colin/.amplify
+/Users/colin/.atom
+/Users/colin/.backup/full
+/Users/colin/.backup/log
+/Users/colin/.Genymobile
+/Users/colin/.android
+/Users/colin/.cups
+/Users/colin/.config/.mono
+/Users/colin/.config/pgcli/log
+/Users/colin/.config/Transmission Remote GUI
+/Users/colin/.cocoapods
+/Users/colin/.cpan
+/Users/colin/.docker
+/Users/colin/.electron
+/Users/colin/.expo
+/Users/colin/.fastlane
+/Users/colin/.gem
+/Users/colin/.gnupg/random_seed
+/Users/colin/.ipython
+/Users/colin/.itmstransporter
+/Users/colin/.iterm2
+/Users/colin/.iterm2_shell_integration.zsh
+/Users/colin/.lesshst
+/Users/colin/.local/share/heroku/client
+/Users/colin/.matplotlib
+/Users/colin/.mcf
+/Users/colin/.m2
+/Users/colin/.mysql_history
+/Users/colin/.node_repl_history
+/Users/colin/.npm
+/Users/colin/.oracle_jre_usage
+/Users/colin/.php_history
+/Users/colin/.pylint.d
+/Users/colin/.rbenv
+/Users/colin/.subversion
+/Users/colin/.tsung
+/Users/colin/.vpython-root
+/Users/colin/.vscode
+/Users/colin/.yarnc
+/Users/colin/.zcomdump
+/Users/colin/.zsh-update
+
++ /Users/colin/.lima/**/lima.yaml
+/Users/colin/.lima/**/*
+
+/Users/colin/go
+
+/Users/colin/code/**/tmp/*
++ /Users/colin/code/statistiks/**/cache/*
+/Users/colin/code/**/cache/*
+/Users/colin/code/**/log/*
+/Users/colin/code/**/*.log
+/Users/colin/code/**/uploads/*
+/Users/colin/code/**/coverage/*
+/Users/colin/code/**/ENV/*
+/Users/colin/code/github/*
+/Users/colin/code/dbadmin/etl/data/*
+/Users/colin/code/bruno-brain/*.dump
+/Users/colin/code/imparato/*.apk
+/Users/colin/code/imparato/*.ipa
+/Users/colin/code/imparato_es_snapshot_latest.tar.gz
+/Users/colin/code/jobs.imparato.io/public/*
+/Users/colin/code/**/public/packs/*
++ /Users/colin/code/**/Gemfile.lock
++ /Users/colin/code/**/yarn.lock
+/Users/colin/code/**/*.lock
++ /Users/colin/code/
+
+/Users/colin/Movies/Documentaires/*
+/Users/colin/Movies/Films/*
+/Users/colin/Movies/Series/*
+/Users/colin/Movies/DestroyAllSoftware/*
+
+/Users/colin/Music/iTunes/Album Artwork
+/Users/colin/Music/iTunes/iTunes Media/Home Videos
+
+
+/Users/colin/Pictures/Lightroom/Lightroom*Catalog Previews.lrdata/*
+/Users/colin/Pictures/Photothèque.photoslibrary/resources/proxies
+/Users/colin/Pictures/Photothèque.photoslibrary/resources/media/master
+/Users/colin/Pictures/Photothèque.photoslibrary/iPod Photo Cache
+/Users/colin/Pictures/Photothèque.photoslibrary/private/com.apple.cloudphotosd/CloudSync.noindex/Engine/filecache
+/Users/colin/Private/Syncthing/Autrement*
+
+/Users/colin/restoration
+
+
+**/Caches
+**/Cache
+**/cache
+**/*.lock
