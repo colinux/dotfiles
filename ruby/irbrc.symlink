@@ -10,6 +10,10 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 IRB.conf[:AUTO_INDENT] = true
 
+if RUBY_VERSION == '3.1.2' # https://github.com/ruby/irb/issues/330
+  IRB.conf[:USE_MULTILINE] = false # fix binding issues in ruby 3.1
+end
+
 class Object
   # list methods which aren't in superclass
   def local_methods(obj = self)
@@ -24,7 +28,7 @@ class Object
   #   arr.ri :pop
   def ri(method = nil)
     unless method && method =~ /^[A-Z]/ # if class isn't specified
-      klass = self.kind_of?(Class) ? name : self.class.name
+      klass = is_a?(Class) ? name : self.class.name
       method = [klass, method].compact.join('#')
     end
     puts `ri '#{method}'`
@@ -35,7 +39,7 @@ end
 # clipboard (if you're on macOS).
 def cop
   last_value = IRB.CurrentContext.last_value
-  %x[echo '#{last_value}' | pbcopy]
+  `echo '#{last_value}' | pbcopy`
   "copied \`#{last_value}' to your clipboard"
 end
 
