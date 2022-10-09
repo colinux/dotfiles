@@ -57,3 +57,6 @@ alias jest="nocorrect jest"
 alias bundle='nocorrect bundle'
 alias yarn='nocorrect yarn'
 
+
+# aliases for DS
+alias ds="/Users/colin/code/ds-cli/ds"

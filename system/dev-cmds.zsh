@@ -8,13 +8,13 @@ function t(){
 # Start dev processes depending on current directory, by tring to read executables or proc files.
 function s(){
   if [ -f './Procfile.dev' ]; then
-    command overmind start -f ./Procfile.dev -x worker $*
+    command overmind start -f ./Procfile.dev -x worker -x jobs $*
   elif [ -f './Procfile' ]; then
     command overmind start --port `(printenv PORT || echo "3000")`
   elif [ -f "bin/rails" ]; then
     command bin/rails s
   elif [ -d ".expo" ]; then
-    command expo start --dev-client
+    command npx expo start --dev-client
   fi
 }
 
