@@ -34,6 +34,7 @@
         mdr = !"git diff "$@" |  mdr"
         sweep = !git branch --merged main | grep -v 'main$' | xargs git branch -d && git remote prune origin
         realdiff = diff --stat main -- ":(exclude)*.lock" ":(exclude)*.snap"
+        wip = "!sh -c 'git commit --no-verify -m \"wip: $0\"'"
 [color]
         diff = auto
         status = auto
