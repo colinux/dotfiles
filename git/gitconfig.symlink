@@ -13,7 +13,7 @@
         count   = !git shortlog -sn
         s = status
         sw = switch
-        main = !git switch main && git pull origin main
+        main = !"git switch main && (git remote |grep -q beta && (git pull beta main && git push origin main) || git pull origin main)"
         d = diff
         po = push origin
         can = commit --amend --no-edit

@@ -12,6 +12,7 @@ brew install bat
 brew install git-delta
 brew install fd
 brew install direnv
+brew install git-delete-merged-branches
 brew install jq
 brew install httpie
 brew install htop

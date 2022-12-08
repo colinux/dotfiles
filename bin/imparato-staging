@@ -33,13 +33,14 @@ if [ "$1" = "start" ]; then
     fi
   done
 elif [ "$1" = "stop" ]; then
-  $heroku ps:scale web=0 -a api-imparato-io-staging
+  $heroku ps:scale web=0 worker=0 -a api-imparato-io-staging
   $heroku ps:scale web=0 -a webapp-imparato-io-staging
   $heroku ps:scale web=0 -a imparato-api-tester
 
   for reviewApp in $reviewApps; do
     echo "Stopping $reviewApp"
-    $heroku ps:scale web=0 -a $reviewApp
+    # TODO:  worker=0 only on parent api-imparato-io-staging
+    $heroku ps:scale web=0 worker=0 -a $reviewApp
   done
 
   echo "All staging and review apps were stopped."
