@@ -51,7 +51,7 @@ Plugin 'alvan/vim-closetag'
 Plugin 'github/copilot.vim'
 
 " Navigation
-Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 " Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -142,6 +142,7 @@ if dayOrNight == "day"
   let g:one_allow_italics = 1 " I love italic for comments
   " colorscheme one
   colorscheme embark
+  let $BAT_THEME='Coldark-Dark' " Fix FZF preview color on dark theme
   " set background=light
   let g:lightline = {
         \ 'colorscheme': 'embark',
@@ -150,6 +151,7 @@ else
   " colorscheme onedark
   colorscheme embark
   " set background=dark
+  let $BAT_THEME='Coldark-Dark' " Fix FZF preview color on dark theme
 endif
 
 
@@ -347,8 +349,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format)
+xmap <leader>fo <Plug>(coc-format-selected)
+nmap <leader>fo <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
@@ -424,23 +426,25 @@ endfunction
 " autocmd CursorHold * :call <SID>show_hover_doc()
 "" End CoC recommendations
 
-" Ctrlp
-" let g:ctrlp_map = "<leader>p"
 set wildignore+=*/log/*,*/cache/*,*/node_modules/*,*/code/*/bin/*,*/.bundle/*,*/.git/*,*/.tags*,.eslintcache,*/coverage/*,*/public/packs/*
 
 " FZF
 let $FZF_DEFAULT_COMMAND="ag -g '' --hidden --ignore '*.png' --ignore '*.jpg' --ignore '*.svg' --ignore '*.ttf' --ignore '*.woff' --ignore '*.eot' --ignore '*.gif' --ignore '*.ico' --ignore '*.lock' --ignore 'log/' --ignore 'tmp/' --ignore .git"
 nnoremap <silent> <Leader>p :Files<CR>
-nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>g :GFiles?<CR>
 
 " Rails project
-" if filereadable('config/routes.rb')
-"   " This looks like a Rails app, add Rails specific mappings here.
-"   nnoremap <silent> <Leader>pc :Files app/controllers<CR>
-"   nnoremap <silent> <Leader>pm :Files app/models<CR>
-"   nnoremap <silent> <Leader>pj :Files app/javascript<CR>
-"   nnoremap <silent> <Leader>pt :Files test<CR>
-" endif
+if filereadable('config/routes.rb')
+  " This looks like a Rails app, add Rails specific mappings here.
+  nnoremap <silent> <Leader>fc :Files app/controllers<CR>
+  nnoremap <silent> <Leader>fm :Files app/models<CR>
+  nnoremap <silent> <Leader>fj :Files app/javascript<CR>
+
+  command! -bang FilesTest call fzf#run(fzf#wrap({ 'source': 'ag -g "" --hidden test spec'}, <bang>0))
+nnoremap <silent> <Leader>ft :FilesTest<CR>
+endif
 
 " Word motions
 " NOTE: Meta (Alt) mapping is done by enabling iTerm right meta key behaving
@@ -477,17 +481,17 @@ let delimitMate_balance_matchpairs = 1
 " imap <expr> <tab> pumvisible() ? "<C-N>" : (delimitMate#ShouldJump() ? "<Plug>delimitMateS-Tab" : "<Tab>")
 
 " NERDTree
-map <Leader>k :NERDTreeToggle<CR>
-map <Leader>kf :NERDTreeFind<CR>
-let NERDTreeRespectWildIgnore = 1
-let NERDTreeShowHidden = 1
-let NERDTreeSortHiddenFirst = 1
-let NERDTreeIgnore=['\.vim$', '\~$', '^log$', '^node_modules$', '^.bundle$', '^.git$', '.DS_Store$', '^.imdone']
-let NERDTreeWinSize=55
+" map <Leader>k :NERDTreeToggle<CR>
+" map <Leader>kf :NERDTreeFind<CR>
+" let NERDTreeRespectWildIgnore = 1
+" let NERDTreeShowHidden = 1
+" let NERDTreeSortHiddenFirst = 1
+" let NERDTreeIgnore=['\.vim$', '\~$', '^log$', '^node_modules$', '^.bundle$', '^.git$', '.DS_Store$', '^.imdone']
+" let NERDTreeWinSize=55
 
 " CHADTree
 nnoremap <leader>k <cmd>CHADopen<cr>
-nnoremap <leader>kf <cmd>CHADopen<cr>
+" nnoremap <leader>kf <cmd>CHADopen<cr>
 let g:chadtree_settings = { "theme.text_colour_set": "solarized_dark", "theme.icon_glyph_set": has("guifont") ? "devicons" : "ascii" }
 
 " Vue support

@@ -19,6 +19,7 @@ alias o='open .'
 # Bat is better than cat, but disable line numbers
 alias cat="bat"
 alias pat="bat -p"
+export BAT_THEME="Coldark-Dark"
 
 # always prefer nvim, goneovim for code
 alias vi="nvim"
