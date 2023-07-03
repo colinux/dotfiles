@@ -13,7 +13,7 @@
         count   = !git shortlog -sn
         s = status
         sw = switch
-        main = !"git switch main && (git remote |grep -q beta && (git pull beta main && git push origin main) || git pull origin main)"
+        main = !"git switch main && (git remote |grep -q beta && (git fetch beta && git pull beta main && git push origin main) || git pull origin main)"
         d = diff
         po = push origin
         can = commit --amend --no-edit
@@ -35,6 +35,7 @@
         sweep = !git branch --merged main | grep -v 'main$' | xargs git branch -d && git remote prune origin
         realdiff = diff --stat main -- ":(exclude)*.lock" ":(exclude)*.snap"
         wip = "!sh -c 'git commit --no-verify -m \"wip: $0\"'"
+        lasttag = !"git tag --sort=committerdate |tail -1"
 [color]
         diff = auto
         status = auto
