@@ -42,6 +42,8 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'honza/vim-snippets' " snippets community
 Plugin 'chrisbra/unicode.vim'
+Plugin 'Einenlum/yaml-revealer'
+Plugin 'uga-rosa/translate.nvim'
 
 " Completion, transformation
 " Plugin 'ycm-core/YouCompleteMe'
@@ -155,7 +157,7 @@ else
 endif
 
 
-set guifont=FantasqueSansMono\ Nerd\ Font:h16
+set guifont=FantasqueSansM\ Nerd\ Font\ Mono:h16
 " set guifont=Monaco:h12
 " set guifont=FantasqueSansMono\ Nerd\ Font\ Mono\ Courant\ 12 " Neovim in terminal will ignore this option. Set terminal font instead"
 if !has("nvim")
@@ -564,6 +566,8 @@ let g:vimade.checkinterval = 500
 " Set new digraphs (hexa codes)
 function SetNewDigraphs()
   DigraphNew md 2027
+  DigraphNew << 00ab
+  DigraphNew >> 00bb
 endfunction
 autocmd BufEnter * call SetNewDigraphs()
 
@@ -581,3 +585,25 @@ let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'erb=ruby', 'vim', 
 " pathfinder config
 " let g:pf_popup_time = 3000
 " let g:pf_autorun_delay = 1.5
+
+" yaml config
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd BufEnter yaml foldlevelstart=3
+
+" translate config
+let g:deepl_api_auth_key = $DEEPL_API_KEY
+lua <<EOL
+require("translate").setup({
+    default = {
+        command = "deepl_free",
+		output = "replace"
+    },
+    preset = {
+        output = {
+			replace = "head"
+        },
+    },
+})
+EOL
+
+
