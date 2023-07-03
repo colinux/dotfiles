@@ -46,7 +46,7 @@ alias curl_headers="curl -s -D - -o /dev/null $@"
 alias headers="http --headers $@"
 
 # Quickly serve the current directory as HTTP
-alias serve='python3 -m SimpleHTTPServer'
+alias serve='python3 -m http.server'
 
 alias tl='tail -0f log/*.log | bat --paging=never -l log'
 
