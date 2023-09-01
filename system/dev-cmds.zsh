@@ -79,4 +79,4 @@ function dev_imp_token() {
   fi
 }
 
-alias resolve="git diff --name-only --diff-filter=U | xargs code -n"
+alias resolve="git diff --name-only --diff-filter=U | xargs code -n -d"

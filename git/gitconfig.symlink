@@ -21,8 +21,8 @@
         fix = commit --no-verify --fixup
         r = rebase
         graph = log --graph --decorate --oneline --all
-        l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+        l = log --pretty=format:"%C(yellow)%h\\ %C(green)%G?%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+        ll = log --pretty=format:"%C(yellow)%h\\ %C(green)%G?%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
         ; pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/main"
         dw = diff --color-words
         search = "!f () { git grep -E -n "$1" $(git log --pretty=format:%h -E -10 --pickaxe-regex -S"$1" "$2") -- "./$2"; }; f"
@@ -36,6 +36,7 @@
         realdiff = diff --stat main -- ":(exclude)*.lock" ":(exclude)*.snap"
         wip = "!sh -c 'git commit --no-verify -m \"wip: $0\"'"
         lasttag = !"git tag --sort=committerdate |tail -1"
+        lastmerges = !"git log --merges --pretty=format:'%C(auto)%h %s%n%C(dim)%b' $(git lasttag)..HEAD"
 [color]
         diff = auto
         status = auto
@@ -108,7 +109,7 @@
         tool = opendiff
         conflictstyle = diff3
 [commit]
-        gpgsign = true
+        gpgSign = true
         verbose = true
 [credential]
         helper = osxkeychain

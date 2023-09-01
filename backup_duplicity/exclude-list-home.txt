@@ -47,6 +47,7 @@
 /Users/colin/Library/Application Support/Console/*
 /Users/colin/Library/Application Support/CrashReporter
 /Users/colin/Library/Application Support/Expo XDE/*
+/Users/colin/Library/Application Support/Figma/*
 /Users/colin/Library/Application Support/Firefox/Crash Reports/*
 /Users/colin/Library/Application Support/Flux/*
 /Users/colin/Library/Application Support/Front/*
@@ -66,6 +67,7 @@
 /Users/colin/Library/Application Support/Oracle/*
 /Users/colin/Library/Application Support/PreferenceSync/*
 /Users/colin/Library/Application Support/Preview/*
+/Users/colin/Library/Application Support/Postman/*
 /Users/colin/Library/Application Support/Progressive Downloader Data
 /Users/colin/Library/Application Support/Quick Look
 /Users/colin/Library/Application Support/React Native Debugger
