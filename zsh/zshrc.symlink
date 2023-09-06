@@ -52,3 +52,7 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export OPENAI_KEY=
+export PATH=$PATH:/usr/local/bin
+export OPENAI_KEY=
+export PATH=$PATH:/usr/local/bin

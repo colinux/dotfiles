@@ -50,7 +50,8 @@ Plugin 'uga-rosa/translate.nvim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
 Plugin 'alvan/vim-closetag'
-Plugin 'github/copilot.vim'
+" Plugin 'github/copilot.vim'
+Plugin 'Exafunction/codeium.vim'
 
 " Navigation
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -287,11 +288,12 @@ endif
 " other plugin before putting this into your config.
 "
 let g:copilot_no_tab_map = v:true
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1):
-      \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
-      \ CheckBackSpace() ? "\<Tab>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"       \ coc#pum#visible() ? coc#pum#next(1):
+"       \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
+"       \ CheckBackSpace() ? "\<Tab>" :
+"       \ coc#refresh()
+
 
 " imap <silent><expr> <tab>
 "       \ coc#pum#visible() ? coc#puma#next(1) :
