@@ -209,6 +209,9 @@ nnoremap <leader>b <C-^>
 " copy current file relative path to system clipboard
 nnoremap <leader>fi :let @+ = expand("%")<CR>
 
+" default copy/yank to clipbaord
+set clipboard=unnamedplus
+
 vmap <Leader>y "+y
 nmap <Leader>P "+p
 vmap <Leader>P "+p
