@@ -51,4 +51,18 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# bun completions
+[ -s "/Users/colin/.bun/_bun" ] && source "/Users/colin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="`brew --prefix python`/libexec/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+
+# Created by `pipx` on 2024-11-18 20:58:05
+export PATH="$PATH:/Users/colin/.local/bin"
