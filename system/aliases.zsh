@@ -18,7 +18,7 @@ alias o='open .'
 
 # Bat is better than cat, but disable line numbers
 alias cat="bat"
-alias pat="bat -p"
+alias pat="/bin/cat"
 export BAT_THEME="Coldark-Dark"
 
 # always prefer nvim, goneovim for code
@@ -56,7 +56,7 @@ alias "heroku"="nocorrect heroku"
 alias nb="jupyter notebook notebooks"
 alias jest="nocorrect jest"
 alias bundle='nocorrect bundle'
-alias yarn='nocorrect yarn'
+# alias yarn='nocorrect yarn'
 
 
 # aliases for DS
