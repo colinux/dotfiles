@@ -1,0 +1,58 @@
+ set runtimepath^=~/.vim runtimepath+=~/.vim/after
+ let &packpath = &runtimepath
+ source ~/.vimrc
+
+lua << EOF
+require("bufferline").setup{
+  options = {
+    numbers = function(opts)
+      return string.format('%s·', opts.id)
+    end,
+  }
+}
+EOF
+
+lua << EOF
+vim.keymap.set("n", "<D-=>", [[:lua guifontscale(1)<CR>]], { noremap = true })
+vim.keymap.set("n", "<D-->", [[:lua guifontscale(-1)<CR>]], { noremap = true })
+function guifontscale(n)
+    if type(n) ~= "number" then
+        return
+    end
+
+    local gfa = {}
+    for c in vim.gsplit(vim.o.guifont, ":") do
+        table.insert(gfa, c)
+    end
+    local buildnewgf = ""
+    local h_num, w_num, ratio = nil, nil, nil
+
+    for k, v in ipairs(gfa) do
+        if v:find("h", 1, true) == 1 then
+            h_num = tonumber(v:sub(2))
+            h_num = h_num + n
+            buildnewgf = buildnewgf .. "h" .. tostring(h_num)
+        elseif v:find("w", 1, true) == 1 then
+            w_num = tonumber(v:sub(2))
+            if h_num then
+                ratio = w_num / h_num
+                w_num = (h_num + n) * ratio
+            else
+                w_num = w_num + n
+            end
+            buildnewgf = buildnewgf .. "w" .. string.format("%.2f", w_num)
+        else
+            v = string.gsub(v, " ", "_")
+            buildnewgf = buildnewgf .. v
+        end
+        if k ~= #gfa and v ~= "" then
+            buildnewgf = buildnewgf .. ":"
+        end
+    end
+
+    local setcmd = "set guifont=" .. buildnewgf
+    vim.cmd(setcmd)
+
+    return 0
+end
+EOF
