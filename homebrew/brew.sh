@@ -2,7 +2,7 @@ brew install coreutils
 
 # Command tools
 brew install ack ag
-brew install git
+brew install git git-absorb git-delta git-delete-merged-branches
 brew install ssh-copy-id
 brew install tmux
 brew install tree
@@ -21,7 +21,11 @@ brew install pgcli
 brew install pdftotext
 brew install ffmpeg
 brew install sd
-brew install yt-dlp/taps/yt-dlp
+brew install yt-dlp
+brew install weaysyprint
+brew install duc
+brew install the_silver_searcher
+brew install duplicity
 
 
 # GPG
@@ -45,9 +49,9 @@ brew install vlc
 brew install homebrew/cask/handbrake
 
 # Vim & deps
-brew install fzf
-brew install neovim goneovim
-brew install gh
+# brew install fzf
+# brew install neovim goneovim
+# brew install gh
 
 # Languages & dev utils
 brew install heroku/brew/heroku
@@ -55,6 +59,10 @@ brew install overmind
 brew install rbenv
 brew install ruby-build
 brew install shared-mime-info # for mimemagic gem
+brew install nodenv
+brew install pyenv
+brew install rust
+brew install oven-sh/bun/bun
 
 # React-Native & debuggers
 brew install --cask flipper react-native-debugger
@@ -62,16 +70,16 @@ brew install watchman
 brew tap facebook/fb
 brew install idb-companion
 
-brew install node@14
 brew install node@16
 
 brew install android-studio
 brew install geckodriver
 brew install sequel-ace
+brew install ollama
 
-brew install postgresql@13 libpq
+brew install postgresql@14 libpq postgis
+brew install mysql@8.4
 brew install redis
-brew install elasticsearch-oss
 
 
 brew cleanup
