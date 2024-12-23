@@ -14,7 +14,7 @@
         s = status
         sw = switch
         main = !"git switch main && (git remote |grep -q beta && (git fetch beta && git pull beta main && git push origin main) || git pull origin main)"
-        d = diff
+        d = difftool
         po = push origin
         can = commit --amend --no-edit
         myrw = "!reword() { git commit --amend -m \"$1\"; }; reword"
@@ -34,9 +34,9 @@
         mdr = !"git diff "$@" |  mdr"
         sweep = !git branch --merged main | grep -v 'main$' | xargs git branch -d && git remote prune origin
         realdiff = diff --stat main -- ":(exclude)*.lock" ":(exclude)*.snap"
-        wip = "!sh -c 'git commit --no-verify -m \"wip: $0\"'"
+        wip = "!sh -c 'git commit --no-verify --no-gpg-sign -m \"wip: $0\"'"
         lasttag = !"git tag --sort=committerdate |tail -1"
-        lastmerges = !"git log --merges --pretty=format:'%C(auto)%h %s%n%C(dim)%b' $(git lasttag)..HEAD"
+        lastmerges = !"git log --merges --no-show-signature --pretty=format:'%C(auto)%h %s%n%C(dim)%b' $(git lasttag)..HEAD"
 [color]
         diff = auto
         status = auto
@@ -63,7 +63,7 @@
         untrakced = cyan
 [core]
         excludesfile = ~/.gitignore
-        editor = nvim
+	editor = nvim
         whitespace = -blank-at-eof,trailing-space,fix,cr-at-eol
         autoclrf = input
         repositoryformatversion = 0
@@ -79,12 +79,14 @@
         keepBackup = false
 [difftool]
         prompt = false
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
 [interactive]
         diffFilter = delta --color-only
 [delta]
         navigate = true # use n an dN to move between diff sections
 [help]
-        autocorrect = 25 # 2.5 sec before executing autocorrected command
+        autocorrect = 10
         format = html
 [pull]
         rebase = true
@@ -97,17 +99,21 @@
 [rebase]
         autosquash = true
         interactive = true
+        autostash = true
 [status]
         showUntrackedFiles = all
         short = true
 [diff]
         context = 4
         colorMoved = default
+	algorithm = histogram
+	colorMovedWS = allow-indentation-change
+	tool = difftastic
 [merge]
         ff = no
         guitool = FileMerge.app
         tool = opendiff
-        conflictstyle = diff3
+	conflictstyle = zdiff3
 [commit]
         gpgSign = true
         verbose = true
@@ -118,3 +124,34 @@
 [init]
         defaultBranch = main
 	templatedir = ~/.git-templates
+[rerere]
+	enabled = true
+	autoupdate = true
+[branch]
+	sort = -committerdate
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+	prune = true
+	prunetags = true
+[receive]
+	fsckobjects = true
+[tag]
+	sort = taggerdate
+[pager]
+	difftool = true
+[credential2]
+	helper = store --file ~/.gitcredentials
+[gitbutler]
+	signCommits = true
+	aiModelProvider = anthropic
+	aiOpenAIKeyOption = butlerAPI
+	aiOpenAIModelName = gpt-3.5-turbo
+	aiAnthropicKeyOption = butlerAPI
+	aiAnthropicModelName = claude-3-haiku-20240307
+	gitbutlerCommitter = 1
+[log]
+  showSignature = false
+[show]
+  showSignature = true

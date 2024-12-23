@@ -433,6 +433,10 @@ endfunction
 " autocmd CursorHold * :call <SID>show_hover_doc()
 "" End CoC recommendations
 
+" Désactiver l'auto-formatage pour db/schema.rb
+autocmd BufWritePre db/schema.rb :CocDisable
+autocmd BufWritePost db/schema.rb :CocEnable
+
 set wildignore+=*/log/*,*/cache/*,*/node_modules/*,*/code/*/bin/*,*/.bundle/*,*/.git/*,*/.tags*,.eslintcache,*/coverage/*,*/public/packs/*
 
 " FZF
@@ -571,10 +575,18 @@ let g:vimade.checkinterval = 500
 " Set new digraphs (hexa codes)
 function SetNewDigraphs()
   DigraphNew md 2027
-  DigraphNew << 00ab
-  DigraphNew >> 00bb
+  " DigraphNew << 00ab
+  " DigraphNew >> 00bb
 endfunction
 autocmd BufEnter * call SetNewDigraphs()
+
+" Pour insérer « avec un espace insécable
+inoremap << <C-V>u00ab<C-V>u00a0
+" Pour insérer un espace insécable et »
+inoremap >> <C-V>u00a0<C-V>u00bb
+
+" Replace double quoted string by french quotes
+nnoremap "<< :s/"\([^"]*\)"/« \1 »/<CR>:noh<CR>
 
 " Open url
 nmap gu :exec "!open <cWORD>"<cr>
@@ -582,7 +594,7 @@ nmap gu :exec "!open <cWORD>"<cr>
 let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " latest node 17 is not installed
-let g:coc_node_path = '/opt/homebrew/opt/node@14/bin/node'
+" let g:coc_node_path = '/opt/homebrew/opt/node@14/bin/node'
 
 " Enable syntax highlighting into markdown code blocks
 let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'erb=ruby', 'vim', 'javascript', 'js=javascript', 'json=javascript', 'tsx=javascript', 'jsx=javascript', 'css', 'sass', 'yaml']
@@ -612,3 +624,4 @@ require("translate").setup({
 EOL
 
 
+set fillchars+=stl:\ ,stlnc:\ ,eob:\ ,

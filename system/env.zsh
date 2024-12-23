@@ -1,4 +1,4 @@
-export EDITOR='nvim'
+export EDITOR='zed'
 export CDPATH="$HOME/code"
 
 export EXPO_APPLE_ID=$EMAIL
